@@ -35,6 +35,9 @@ public class ChatServer {
 		
 		// TODO: Include the hooks to do actual initialization of all required components.
 		
+		
+		// Initializing the fixed worker thread pool with a size of 10 for the time being, for a user base of size 100.
+		// This should be substitued with a custom threadpool that's expandable upto configured max. size.
 		ExecutorService workerPool = Executors.newFixedThreadPool(config.getWorkerThreadCount());
 		ServerSocket ss = null;
 		try {
