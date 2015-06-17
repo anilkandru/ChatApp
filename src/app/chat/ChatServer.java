@@ -101,6 +101,7 @@ public class ChatServer {
 			} catch (IOException ioe) {
 				ioe.printStackTrace();
 			} catch (Exception e) {
+				//TODO: Handle the exception and log the error
 				e.printStackTrace();
 			} finally {
 				try {
