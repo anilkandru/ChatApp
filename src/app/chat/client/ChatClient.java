@@ -12,6 +12,9 @@ import app.chat.Message;
  * IM Client program to demonstrate the one to one communication 
  * using the IM Chat server.
  * 
+ * A single chat client instance is dedicated for communication 
+ * between a single sender and receiver pair.
+ * 
  * Usage: ChatClient senderID receiverID
  * @author Anil Kandru
  *
@@ -21,7 +24,7 @@ public class ChatClient {
 	public static void main(String[] args) {
 		
 		if (args.length != 2) {
-            System.err.println("Usage: java ChatClient <port number>");
+            System.err.println("Usage: java ChatClient <senderID receiverID>");
             System.exit(1);
         }
 		
