@@ -16,6 +16,11 @@ import app.chat.Message;
  * between a single sender and receiver pair.
  * 
  * Usage: ChatClient senderID receiverID
+ * senderID and receiverID must be any integers between 1 to 100.
+ * 
+ * Eg: To open 2-way communication between 'user 10' and 'user 20', open 
+ * -> ChatClient 10 20 (opens chat client for user 10 to push messages to 20)
+ * -> ChatClient 20 10 (opens chat client for user 20 to push messages to 10)
  * @author Anil Kandru
  *
  */
@@ -50,7 +55,7 @@ public class ChatClient {
 			socket = new Socket("localhost", 10050);
 			messageOut = new ObjectOutputStream(socket.getOutputStream());
 			
-			
+			// receiver thread
 			new Thread(new Runnable() {
 				@Override
 				public void run() {
@@ -70,11 +75,11 @@ public class ChatClient {
 			}).start();
 			
 			// first login to the server
-			
 			Message loginMsg = new Message();
 			loginMsg.setType(Message.MSG_TYPE_LOGIN);
 			loginMsg.setContent(clientID);
 			messageOut.writeObject(loginMsg);
+
 			// send messages forever
 			while (true) {
 				String line = dataIn.nextLine();

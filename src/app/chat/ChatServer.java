@@ -13,6 +13,9 @@ import app.chat.util.Configuration;
 
 /** 
  * Instant Message server to facilitate communication for a set of authorized clients.
+ * 
+ * Can be started by executing the class directly without any command line arguments.
+ * Starts the server on default port 10050
  * @author Anil Kandru
  *
  */
@@ -21,7 +24,7 @@ public class ChatServer {
 	private boolean isStopSignal = false;
 
 	public static void main(String[] args) {
-		System.out.println("This is Instant Message server");
+		System.out.println("This is Instant Message server. Runs on port 10050");
 		new ChatServer().startup(new Configuration());
 	}
 	
